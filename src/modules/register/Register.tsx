@@ -5,7 +5,7 @@ const Register: React.FC = () => {
 
   return (
     <section className="container">
-      <div className={ styles.login }>
+      <div className={ styles.register }>
         <RegisterForm />
       </div>
     </section>

@@ -14,7 +14,6 @@ const UsersList: React.FC = () => {
   const [page, setPage] = useState(0);
 
   const uploadList = () => {
-    console.log(page);
     dispatch(fetchTeam(page));
     setPage(page => page + 1);
   };
@@ -25,7 +24,7 @@ const UsersList: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const loadingView = teamStore.loading && teamStore.team.length === 0 &&
+  const loadingView = teamStore.loading &&
     (
       <h2 style={ {
         textAlign: 'center'

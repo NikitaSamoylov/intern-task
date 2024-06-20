@@ -68,7 +68,7 @@ const TeamItemInfo: React.FC = () => {
               </a>
             </span>
             <span className={ styles.contacts__item }>
-              <a href="sykfafkar@gmail.com"
+              <a href="mailto:sykfafkar@gmail.com"
                 className={ styles.contacts__email }>
                 sykfafkar@gmail.com
               </a>

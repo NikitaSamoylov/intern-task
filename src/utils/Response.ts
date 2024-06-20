@@ -13,9 +13,18 @@ export const signUp = async (user: TUser) => {
   if (!resp.ok) {
     throw new Error('ошибка добавления пользователя')
   };
+
+  localStorage.setItem('currentUser', JSON.stringify(
+    {
+      user: {
+        email: user.email,
+      },
+      token: 'jkjslflkjsflkj4kj53lk5j3l5kj',
+    }));
 };
 
 export const login = async (data: TUser) => {
+
   try {
     const resp = await fetch('https://dummyapi.io/data/v1/user?created=1', {
       headers: {
@@ -34,15 +43,6 @@ export const login = async (data: TUser) => {
     if (!foundedUser) {
       throw new Error('Пользователь не найден');
     };
-
-    localStorage.setItem('currentUser', JSON.stringify(
-      {
-        user: {
-          firstName: data.firstName,
-          email: data.email,
-        },
-        token: 'jkjslflkjsflkj4kj53lk5j3l5kj',
-      }));
 
   } catch (e) {
     console.log(e)
