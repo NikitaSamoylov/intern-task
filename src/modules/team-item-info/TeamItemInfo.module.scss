@@ -1,0 +1,132 @@
+.header {
+  position: relative;
+  top: -30px;
+  display: flex;
+  align-items: center;
+  margin-left: 115px;
+
+  &__img {
+    width: 187px;
+    height: 187px;
+    border-radius: 50%;
+    margin-right: 32px;
+  }
+
+  @media (max-width: 1000px) {
+    & {
+      flex-direction: column-reverse;
+      top: 0;
+      margin-left: 0;
+      text-align: center;
+    }
+
+    &__img {
+      margin-top: 25px;
+      margin-right: 0;
+    }
+  }
+}
+
+.content {
+
+  &__title {
+    font-size: 6.4rem;
+    line-height: 7.5rem;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  &__title_lastName {
+    margin-left: 10px;
+  }
+
+  &__description {
+    font-size: 3.2rem;
+    color: #fff;
+  }
+
+  @media (max-width: 1000px) {
+    &__title {
+      text-align: center;
+      font-size: 4.4rem;
+    }
+
+    &__description {
+      text-align: center;
+    }
+  }
+}
+
+.person {
+  width: 960px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: 120px;
+}
+
+@media (max-width: 1130px) {
+  .person {
+    width: 848px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .person {
+    flex-direction: column-reverse;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.info {
+  max-width: 630px;
+  font-size: 1.6rem;
+  line-height: 2.179rem;
+
+  &__item {
+    margin-bottom: 21px;
+  }
+}
+
+.contacts {
+
+  @media (max-width: 1000px) {
+    & {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  &__phone,
+  &__email {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    line-height: 2.127rem;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__phone::before {
+    content: url("./mobile-icon.png");
+    display: inline-flex;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+
+  &__email::before {
+    content: url("./email-icon.png");
+    display: inline-flex;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+  }
+}

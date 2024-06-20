@@ -45,8 +45,7 @@ export const teamList = createSlice({
       })
       .addCase(fetchTeam.fulfilled, (state, action) => {
         state.loading = false;
-        const data = new Set(action.payload);
-        Array.from(data).map(el => state.team.push(el));
+        state.team = [...state.team, ...action.payload]
         state.error = null;
       })
       .addMatcher(isErrror, (state, action: PayloadAction<string>) => {

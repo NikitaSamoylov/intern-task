@@ -5,6 +5,7 @@ import { store } from './store';
 import './App.scss';
 import RegisterPage from './pages/register-page/RegisterPage';
 import MainPage from './pages/main-page/MainPage';
+import TeamItem from './pages/team-item-info/TeamItemPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path='/' element={ <RegisterPage /> } />
             <Route path='/main' element={ <MainPage /> } />
+            <Route path='/main/:id' element={ <TeamItem /> } />
           </Routes>
         </BrowserRouter>
       </Provider>

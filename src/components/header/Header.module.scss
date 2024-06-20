@@ -3,4 +3,59 @@
   background-color: #512689;
   padding: 31px 0 64px 0;
   margin-bottom: 48px;
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__btns_back {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__btns_exit {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn_back_mobile {
+    display: none;
+  }
+
+  &__btn_mobile {
+    display: none;
+    justify-content: flex-end;
+    justify-content: flex-end;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  @media (max-width: 1000px) {
+    &__btn_mobile {
+      display: inline-flex;
+    }
+
+    &__btn {
+      display: none;
+    }
+
+    &__btn_back {
+      display: none;
+    }
+
+    &__btn_back_mobile {
+      display: flex;
+    }
+  }
 }

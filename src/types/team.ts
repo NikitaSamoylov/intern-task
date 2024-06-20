@@ -1,12 +1,3 @@
-// export type TTeamList = {
-//   data: TServerTeam[];
-//   page: number;
-//   per_page: number;
-//   support: TSupport;
-//   total: number;
-//   total_pages: number;
-// };
-
 export type TServerTeam = {
   firstName: string;
   id: string;
@@ -20,3 +11,28 @@ export type TTeamStore = {
   loading: boolean;
   error: null | string;
 };
+
+type TTeamItemLocation = {
+  city: string;
+  country: string;
+  state: string;
+  street: string;
+  timezone: string;
+};
+
+export type TTeamItem = {
+  dateOfBirth: string;
+  email: string;
+  firstName: string;
+  gender: string;
+  id: string;
+  lastName: string;
+  location: TTeamItemLocation;
+  phone: string;
+  picture: string;
+  registerDate: string;
+  title: string;
+  updatedDate: string;
+};
+
+
