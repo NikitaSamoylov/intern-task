@@ -1,18 +1,25 @@
 import { useForm } from 'react-hook-form';
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signUp, login } from '../../utils/Response';
 
-import styles from './LoginForm.module.scss';
+import styles from './RegisterForm.module.scss';
 
 import passIcon from './icon.png';
 
 type FormData = {
-  name: string;
+  lastName: string;
+  firstName: string;
   email: string;
   password: string;
   confirmPassword: string;
 };
 
-const LoginForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
+  const navigate = useNavigate();
+  const passRef = useRef('password');
+  const confirmPassRef = useRef('password');
+
   const [
     isPasswordVisible,
     setIsPasswordVisible
@@ -21,9 +28,7 @@ const LoginForm: React.FC = () => {
     isConfirmPasswordVisible,
     setIsConfirmPasswordVisible
   ] = useState(false);
-
-  const passRef = useRef('password');
-  const confirmPassRef = useRef('password');
+  const [isLoading, setIsLoading] = useState(false);
 
   passRef.current = isPasswordVisible ?
     'text' :
@@ -47,15 +52,30 @@ const LoginForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     reset,
     watch,
   } = useForm<FormData>({
     mode: 'onBlur'
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+
+    const user = {
+      lastName: 'Пользователь',
+      firstName: data.firstName,
+      email: data.email,
+      password: data.password,
+    };
+
+    await signUp(user)
+      .then(() => login(user))
+      .then(() => navigate('/main'))
+      .catch(() => alert('Ошибка, попробуйте снова'))
+
+    setIsLoading(false);
+
     reset();
   };
 
@@ -74,7 +94,7 @@ const LoginForm: React.FC = () => {
           <input type="text"
             id='name'
             className={
-              errors.name ?
+              errors.firstName ?
                 `
                 ${ styles.form__item }
                 ${ styles.form__item_error }
@@ -82,7 +102,7 @@ const LoginForm: React.FC = () => {
                 styles.form__item
             }
             {
-            ...register("name", {
+            ...register("firstName", {
               required: 'заполните поле',
               minLength: {
                 value: 2,
@@ -93,10 +113,10 @@ const LoginForm: React.FC = () => {
           />
         </label>
         {
-          errors.name ?
+          errors.firstName ?
             (
               <span className={ styles.form__item_notice }>
-                { errors.name.message }
+                { errors.firstName.message }
               </span>
             ) :
             null
@@ -223,10 +243,19 @@ const LoginForm: React.FC = () => {
         </label>
       </div>
       <button className={ styles.form__btn }>
-        Зарегистрироваться
+        {
+          !isLoading && (
+            'Зарегистрироваться'
+          )
+        }
+        {
+          isLoading && (
+            'Создаем аккаунт'
+          )
+        }
       </button>
     </form>
   )
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -1,0 +1,28 @@
+.main {
+
+  &__btn_exit {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 6.4rem;
+    line-height: 7.5rem;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Roboto';
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    max-width: 848px;
+    text-align: center;
+    color: #F8F8F8;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    font-weight: 400;
+    font-family: 'Roboto';
+    margin: 0 auto;
+  }
+}

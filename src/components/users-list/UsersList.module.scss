@@ -1,0 +1,32 @@
+.users {
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    list-style-type: none;
+    margin-bottom: 56px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 69px auto;
+    text-align: center;
+    font-family: inherit;
+    color: #151317;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 9px 16px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__button>img {
+    margin-left: 11.3px;
+  }
+}
